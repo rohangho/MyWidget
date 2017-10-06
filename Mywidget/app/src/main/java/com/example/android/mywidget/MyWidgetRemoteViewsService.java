@@ -47,7 +47,7 @@ import android.widget.RemoteViewsService;
 
             @Override
             public int getCount() {
-                if(obj.abc!=null)
+                if(obj.returnarray()!=null)
                     return obj.abc.length;
                 else
                     return 0;
@@ -56,7 +56,7 @@ import android.widget.RemoteViewsService;
             @Override
             public RemoteViews getViewAt(int position) {
                 RemoteViews rv = new RemoteViews(context.getPackageName(), R.layout.widget_list);
-                rv.setTextViewText(R.id.widgetItemTaskNameLabel, obj.abc[position]);
+                rv.setTextViewText(R.id.widgetItemTaskNameLabel, obj.returnarray()[position]);
                 return rv;
             }
 

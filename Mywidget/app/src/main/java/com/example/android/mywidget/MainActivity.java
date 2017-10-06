@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
 
 
-    public static String[] abc=new String[5];
+    public  String[] abc=new String[5];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +18,10 @@ public class MainActivity extends AppCompatActivity {
         abc[3]="is";
         abc[0]="a";
         abc[4]="case";
+
+    }
+    public String[] returnarray(){
+        return abc;
 
     }
 }
