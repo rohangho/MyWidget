@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
+import java.util.ArrayList;
+
 /**
  * Created by ROHAN on 07-10-2017.
  */
@@ -18,14 +20,18 @@ import android.widget.RemoteViewsService;
         }
 
         class MyWidgetRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory {
-
+            private ArrayList<CustomDataType> mydata;
             private Context context;
             MainActivity obj=new MainActivity();
 
             public MyWidgetRemoteViewsFactory(Context context) {
                 this.context = context;
 
-
+                mydata = new ArrayList<>();
+                mydata.add(new CustomDataType("test"));
+                mydata.add(new CustomDataType("case"));
+                mydata.add(new CustomDataType("number"));
+                mydata.add(new CustomDataType("2"));
 
 
             }
@@ -47,8 +53,8 @@ import android.widget.RemoteViewsService;
 
             @Override
             public int getCount() {
-                if(obj.returnarray()!=null)
-                    return obj.abc.length;
+               if(mydata !=null)
+                   return mydata.size();
                 else
                     return 0;
             }
@@ -56,7 +62,7 @@ import android.widget.RemoteViewsService;
             @Override
             public RemoteViews getViewAt(int position) {
                 RemoteViews rv = new RemoteViews(context.getPackageName(), R.layout.widget_list);
-                rv.setTextViewText(R.id.widgetItemTaskNameLabel, obj.returnarray()[position]);
+                rv.setTextViewText(R.id.widgetItemTaskNameLabel, mydata.get(position).getresname());
                 return rv;
             }
 

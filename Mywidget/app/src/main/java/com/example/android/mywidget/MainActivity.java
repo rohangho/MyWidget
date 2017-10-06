@@ -3,25 +3,27 @@ package com.example.android.mywidget;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
 
-    public  String[] abc=new String[5];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        abc[1]="hi";
-        abc[2]="this";
-        abc[3]="is";
-        abc[0]="a";
-        abc[4]="case";
+        ArrayList<CustomDataType> array=new ArrayList<>();
+        array.add(new CustomDataType("hi"));
+        array.add(new CustomDataType("this"));
+        array.add(new CustomDataType("is"));
+        array.add(new CustomDataType("test"));
+        array.add(new CustomDataType("case"));
+
 
     }
-    public String[] returnarray(){
-        return abc;
+
 
     }
-}
+
